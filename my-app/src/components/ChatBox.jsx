@@ -11,6 +11,8 @@ import {
   Chip,
   Stack,
   Paper,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
@@ -18,6 +20,8 @@ import axios from "axios";
 export default function VictoriaBotFullPage() {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const suggestions = [
     "Can you tell me about yourself?",
@@ -63,7 +67,7 @@ export default function VictoriaBotFullPage() {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          px: 2,
+          px: { xs: 0.5, sm: 2 },
         }}
       >
         {/* 🔹 פרופיל */}
@@ -71,8 +75,8 @@ export default function VictoriaBotFullPage() {
           src="/victoria.png"
           alt="victoria"
           sx={{
-            width: 180,
-            height: 180,
+            width: { xs: 80, sm: 120, md: 180 },
+            height: { xs: 80, sm: 120, md: 180 },
             mb: 1,
             border: "3px solid #ff4d88",
             boxShadow: "0 4px 10px rgba(255,77,136,0.2)",
@@ -80,49 +84,52 @@ export default function VictoriaBotFullPage() {
         />
 
         <Typography
-          variant="h6"
+          variant={isMobile ? "subtitle1" : "h6"}
           sx={{
             textAlign: "center",
             fontWeight: 700,
             color: "#ff4d88",
-            mb: 3,
+            mb: { xs: 2, sm: 3 },
+            fontSize: { xs: "1.2rem", sm: "1.5rem" },
           }}
         >
           Victoria Solomtin
         </Typography>
-<Paper
-  elevation={0}
-  sx={{
-    background: "rgba(255, 255, 255, 0.9)",
-    backdropFilter: "blur(10px)",
-    border: "1px solid #ffd1dc",
-    borderRadius: "12px",
-    p: 3,
-    my: 2,
-    width: "100%",
-    maxWidth: 700,
-    fontFamily: "monospace",
-    lineHeight: 1.8,
-    whiteSpace: "pre-line",
-    color: "#333",
-    boxShadow: "0 4px 25px rgba(255, 182, 193, 0.15)",
-    fontWeight: "bold"
-  }}
->
-  {`Victoria Solomtin – Software Engineer
+        <Paper
+          elevation={0}
+          sx={{
+            background: "rgba(255, 255, 255, 0.9)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid #ffd1dc",
+            borderRadius: "12px",
+            p: { xs: 1.5, sm: 3 },
+            my: 2,
+            width: "100%",
+            maxWidth: { xs: 340, sm: 700 },
+            fontFamily: "monospace",
+            lineHeight: 1.7,
+            whiteSpace: "pre-line",
+            color: "#333",
+            boxShadow: "0 4px 25px rgba(255, 182, 193, 0.15)",
+            fontWeight: "bold",
+            fontSize: { xs: "0.8rem", sm: "1rem" },
+            wordBreak: "break-word",
+          }}
+        >
+          {`Victoria Solomtin – Software Engineer
 📍 Tel Aviv, Israel    ✉️ victoria.solomtin@gmail.com
 🎓 B.Sc. in Software Engineering
 💻 Full Stack Developer with a focus on web and mobile app development.
 🌐 Git: `}
-  <a href="https://github.com/victorias22" style={{ color: "#ff4d88", fontWeight: "bold" }}>
-    github.com/victorias22
-  </a>
-  {`
+          <a href="https://github.com/victorias22" style={{ color: "#ff4d88", fontWeight: "bold" }}>
+            github.com/victorias22
+          </a>
+          {`
 🔗 LinkedIn: `}
-  <a href="https://www.linkedin.com/in/victoria-solomtin/" style={{ color: "#ff4d88", fontWeight: "bold" }}>
-    linkedin.com/in/victoria-solomtin
-  </a>
-</Paper>
+          <a href="https://www.linkedin.com/in/victoria-solomtin/" style={{ color: "#ff4d88", fontWeight: "bold" }}>
+            linkedin.com/in/victoria-solomtin
+          </a>
+        </Paper>
 
         {/* 🔹 חץ אלגנטי */}
         <Box
@@ -139,7 +146,7 @@ export default function VictoriaBotFullPage() {
             },
           }}
         >
-          <KeyboardArrowDownIcon sx={{ fontSize: 50, color: "#ffd84d" }} />
+          <KeyboardArrowDownIcon sx={{ fontSize: { xs: 34, sm: 50 }, color: "#ffd84d" }} />
         </Box>
 
         {/* 🔹 אזור פרויקטים */}
@@ -148,10 +155,10 @@ export default function VictoriaBotFullPage() {
           sx={{
             backgroundColor: "#fff",
             borderRadius: 3,
-            p: 3,
-            my: 3,
+            p: { xs: 1.5, sm: 3 },
+            my: { xs: 2, sm: 3 },
             width: "100%",
-            maxWidth: 800,
+            maxWidth: { xs: 350, sm: 800 },
             border: "1px solid #fff0f5",
             boxShadow: "0 2px 15px rgba(0,0,0,0.05)",
             "&:hover": {
@@ -162,7 +169,7 @@ export default function VictoriaBotFullPage() {
           }}
         >
           <Typography
-            variant="h6"
+            variant={isMobile ? "body1" : "h6"}
             sx={{
               textAlign: "center",
               fontWeight: "bold",
@@ -178,24 +185,24 @@ export default function VictoriaBotFullPage() {
         {/* 🔹 אזור שאלות */}
         <Box
           sx={{
-            minHeight: "100vh",
+            minHeight: "50vh",
             width: "100%",
             backgroundColor: "#fffef9",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            py: 5,
-            px: 2,
+            py: { xs: 2, sm: 5 },
+            px: { xs: 0.5, sm: 2 },
             fontFamily: "Arial, sans-serif",
           }}
         >
           <Typography
-            variant="h5"
+            variant={isMobile ? "h6" : "h5"}
             sx={{
               color: "#222",
               textAlign: "center",
               fontWeight: 700,
-              maxWidth: 700,
+              maxWidth: { xs: 350, sm: 700 },
               mb: 2,
             }}
           >
@@ -206,9 +213,10 @@ export default function VictoriaBotFullPage() {
             sx={{
               color: "#555",
               textAlign: "center",
-              maxWidth: 700,
+              maxWidth: { xs: 330, sm: 700 },
               lineHeight: 1.6,
-              mb: 4,
+              mb: 3,
+              fontSize: { xs: "0.95rem", sm: "1.1rem" },
             }}
           >
             Ask me anything about my experience, my skills, or the projects I've built!
@@ -220,13 +228,13 @@ export default function VictoriaBotFullPage() {
               display: "flex",
               alignItems: "center",
               width: "100%",
-              maxWidth: 600,
+              maxWidth: { xs: 340, sm: 600 },
               backgroundColor: "#fff",
               border: "1px solid #ffd8d8",
               borderRadius: "25px",
               px: 2,
-              py: 1,
-              mb: 3,
+              py: { xs: 0.5, sm: 1 },
+              mb: 2,
               boxShadow: "0 2px 6px rgba(255,216,72,0.15)",
             }}
           >
@@ -237,7 +245,7 @@ export default function VictoriaBotFullPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && ask()}
-              sx={{ input: { color: "#222", fontSize: "1rem" } }}
+              sx={{ input: { color: "#222", fontSize: { xs: "0.97rem", sm: "1rem" } } }}
               InputProps={{ disableUnderline: true }}
             />
             <IconButton onClick={() => ask()} sx={{ color: "#ff4d88" }}>
@@ -252,8 +260,10 @@ export default function VictoriaBotFullPage() {
             sx={{
               flexWrap: "wrap",
               justifyContent: "center",
-              maxWidth: 700,
-              mb: 4,
+              maxWidth: { xs: 340, sm: 700 },
+              mb: 3,
+              rowGap: 1,
+              columnGap: 1,
             }}
           >
             {suggestions.map((s, i) => (
@@ -264,11 +274,14 @@ export default function VictoriaBotFullPage() {
                 sx={{
                   color: "#ff4d88",
                   borderColor: "#ffd84d",
-                  fontSize: "0.9rem",
+                  fontSize: { xs: "0.85rem", sm: "0.97rem" },
                   px: 1,
                   py: 0.5,
                   borderRadius: "20px",
                   backgroundColor: "#fff",
+                  whiteSpace: "normal",
+                  maxWidth: { xs: 150, sm: 240 },
+                  mb: { xs: 1, sm: 0 },
                   "&:hover": {
                     backgroundColor: "#fff8e7",
                     transform: "scale(1.05)",
@@ -283,15 +296,16 @@ export default function VictoriaBotFullPage() {
           {response && (
             <Paper
               sx={{
-                p: 3,
+                p: { xs: 2, sm: 3 },
                 backgroundColor: "#fffdfc",
                 borderRadius: "12px",
                 border: "1px solid #ffe0eb",
                 color: "#333",
-                maxWidth: 700,
+                maxWidth: { xs: 330, sm: 700 },
                 width: "100%",
                 textAlign: "right",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                fontSize: { xs: "1rem", sm: "1.12rem" },
               }}
             >
               <Typography
