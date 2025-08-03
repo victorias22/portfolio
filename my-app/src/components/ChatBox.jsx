@@ -124,11 +124,18 @@ export default function VictoriaBotFullPage() {
           <a href="https://github.com/victorias22" style={{ color: "#ff4d88", fontWeight: "bold" }}>
             github.com/victorias22
           </a>
-          {`
-🔗 LinkedIn: `}
-          <a href="https://www.linkedin.com/in/victoria-solomtin/" style={{ color: "#ff4d88", fontWeight: "bold" }}>
+          {
+          <span>
+          🔗 LinkedIn:{" "}
+          <a
+            href="https://www.linkedin.com/in/victoria-solomtin/"
+            style={{ color: "#ff4d88", fontWeight: "bold" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             linkedin.com/in/victoria-solomtin
           </a>
+        </span>}
         </Paper>
 
         {/* 🔹 חץ אלגנטי */}
