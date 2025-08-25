@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import staticAnswers from "./staticAnswers";
 import ProjectsFolders from "./ProjectsFolders";
@@ -57,50 +56,8 @@ export default function VictoriaBotFullPage() {
     }
   };
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Victoria Solomtin",
-    alternateName: ["Victoria Solomatin", "Solomtin", "Solomatin"],
-    jobTitle: "Backend / Full-Stack Developer",
-    url: "https://portfolio-5qny.onrender.com/",
-    sameAs: [
-      "https://www.linkedin.com/in/victoria-solomtin",
-      "https://github.com/victorias22",
-    ],
-  };
-
   return (
     <Box sx={{ transform: "scale(1.02)", transformOrigin: "top center" }}>
-      {/* SEO */}
-      <Helmet>
-        <title>Victoria Solomtin (Solomatin) – Portfolio & Backend Developer</title>
-        <meta
-          name="description"
-          content="Official portfolio of Victoria Solomtin (also known as Victoria Solomatin) – Backend / Full-Stack Developer. Projects, skills, and contact info."
-        />
-        <link rel="canonical" href="https://portfolio-5qny.onrender.com/" />
-        <meta name="robots" content="index,follow" />
-        {/* Social */}
-        <meta property="og:title" content="Victoria Solomtin (Solomatin) | Portfolio" />
-        <meta
-          property="og:description"
-          content="Portfolio of Victoria Solomtin – Backend / Full-Stack Developer."
-        />
-        <meta property="og:image" content="/victoria-og.jpg" />
-        <meta property="og:url" content="https://portfolio-5qny.onrender.com/" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Victoria Solomtin (Solomatin) | Portfolio" />
-        <meta
-          name="twitter:description"
-          content="Portfolio of Victoria Solomtin – Backend / Full-Stack Developer."
-        />
-        <meta name="twitter:image" content="/victoria-og.jpg" />
-        {/* JSON-LD */}
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
-
       <Box
         sx={{
           minHeight: "100vh",
@@ -116,7 +73,7 @@ export default function VictoriaBotFullPage() {
         {/* 🔹 פרופיל */}
         <Avatar
           src="/victoria.png"
-          alt="Portrait of Victoria Solomtin"
+          alt="victoria"
           sx={{
             width: { xs: 80, sm: 120, md: 180 },
             height: { xs: 80, sm: 120, md: 180 },
@@ -124,12 +81,9 @@ export default function VictoriaBotFullPage() {
             border: "3px solid #ff4d88",
             boxShadow: "0 4px 10px rgba(255,77,136,0.2)",
           }}
-          imgProps={{ loading: "lazy" }}
         />
 
-        {/* H1 אמיתי (חשוב ל-SEO) */}
         <Typography
-          component="h1"
           variant={isMobile ? "subtitle1" : "h6"}
           sx={{
             textAlign: "center",
@@ -139,11 +93,8 @@ export default function VictoriaBotFullPage() {
             fontSize: { xs: "1.2rem", sm: "1.5rem" },
           }}
         >
-          Victoria Solomtin <Typography component="span" sx={{ opacity: 0.8 }}>
-            (Solomatin)
-          </Typography>
+          Victoria Solomtin
         </Typography>
-
         <Paper
           elevation={0}
           sx={{
@@ -164,36 +115,27 @@ export default function VictoriaBotFullPage() {
             fontSize: { xs: "0.8rem", sm: "1rem" },
             wordBreak: "break-word",
           }}
-          aria-label="About Victoria Solomtin"
         >
           {`Victoria Solomtin – Software Engineer
 📍 Tel Aviv, Israel    ✉️ victoria.solomtin@gmail.com
 🎓 B.Sc. in Software Engineering
-💻 Full Stack Developer with a focus on web and mobile app development.`}{" "}
+💻 Full Stack Developer with a focus on web and mobile app development.
+🌐 Git: `}
+          <a href="https://github.com/victorias22" style={{ color: "#ff4d88", fontWeight: "bold" }}>
+            github.com/victorias22
+          </a>
+          {
           <span>
-            I’m also known as <strong>Victoria Solomatin</strong>.
-          </span>
-          {"  "}
-          🌐 Git:{" "}
+          🔗 LinkedIn:{" "}
           <a
-            href="https://github.com/victorias22"
+            href="https://www.linkedin.com/in/victoria-solomtin/"
             style={{ color: "#ff4d88", fontWeight: "bold" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            github.com/victorias22
+            linkedin.com/in/victoria-solomtin
           </a>
-          <span>
-            {"  "}🔗 LinkedIn:{" "}
-            <a
-              href="https://www.linkedin.com/in/victoria-solomtin/"
-              style={{ color: "#ff4d88", fontWeight: "bold" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              linkedin.com/in/victoria-solomtin
-            </a>
-          </span>
+        </span>}
         </Paper>
 
         {/* 🔹 חץ אלגנטי */}
@@ -210,7 +152,6 @@ export default function VictoriaBotFullPage() {
               "50%": { transform: "translateY(8px)" },
             },
           }}
-          aria-hidden
         >
           <KeyboardArrowDownIcon sx={{ fontSize: { xs: 34, sm: 50 }, color: "#ffd84d" }} />
         </Box>
@@ -233,7 +174,6 @@ export default function VictoriaBotFullPage() {
               transition: "0.3s",
             },
           }}
-          aria-label="Projects"
         >
           <Typography
             variant={isMobile ? "body1" : "h6"}
@@ -262,7 +202,6 @@ export default function VictoriaBotFullPage() {
             px: { xs: 0.5, sm: 2 },
             fontFamily: "Arial, sans-serif",
           }}
-          aria-label="Ask me anything"
         >
           <Typography
             variant={isMobile ? "h6" : "h5"}
@@ -305,18 +244,18 @@ export default function VictoriaBotFullPage() {
               mb: 2,
               boxShadow: "0 2px 6px rgba(255,216,72,0.15)",
             }}
-            role="search"
           >
             <TextField
               fullWidth
               variant="standard"
+              placeholder="שאלו אותי משהו..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && ask()}
               sx={{ input: { color: "#222", fontSize: { xs: "0.97rem", sm: "1rem" } } }}
-              InputProps={{ disableUnderline: true, "aria-label": "write your question" }}
+              InputProps={{ disableUnderline: true }}
             />
-            <IconButton onClick={() => ask()} sx={{ color: "#ff4d88" }} aria-label="send question">
+            <IconButton onClick={() => ask()} sx={{ color: "#ff4d88" }}>
               <SendIcon />
             </IconButton>
           </Box>
@@ -356,7 +295,6 @@ export default function VictoriaBotFullPage() {
                   },
                 }}
                 onClick={() => ask(s)}
-                aria-label={`ask: ${s}`}
               />
             ))}
           </Stack>
@@ -376,7 +314,6 @@ export default function VictoriaBotFullPage() {
                 boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                 fontSize: { xs: "1rem", sm: "1.12rem" },
               }}
-              aria-live="polite"
             >
               <Typography
                 variant="subtitle2"
