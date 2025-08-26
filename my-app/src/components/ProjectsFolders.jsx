@@ -4,6 +4,11 @@ import FolderIcon from "@mui/icons-material/Folder";
 
 // 🔹 רשימת הפרויקטים
 const projects = [
+    {
+    title: "FreelanceCenter",
+    description: "MERN freelance platform with chat, orders, and real-time collaboration.",
+    github: "https://github.com/victorias22/freelancer_center",
+  },
   {
     title: "Mikveh Management",
     description: "A web app for managing mikveh appointments and user interactions.",
@@ -18,11 +23,6 @@ const projects = [
     title: "Game OOP",
     description: "A game developed with OOP principles, showing design patterns and mechanics.",
     github: "https://github.com/victorias22/Game-OOP",
-  },
-  {
-    title: "FreelanceCenter",
-    description: "MERN freelance platform with chat, orders, and real-time collaboration.",
-    github: "https://github.com/victorias22/freelancer_center",
   },
 ];
 
